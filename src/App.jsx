@@ -1,5 +1,5 @@
 import Header from "./components/Header";
-import Home from "./pages/Home";
+import Home from "./pages/Home/Home";
 import Footer from "./components/Footer";
 import { useEffect, useState } from "react";
 import About from "./pages/About";
