@@ -1,12 +1,12 @@
 import Header from "./components/Header";
 import Home from "./pages/Home/Home";
 import Footer from "./components/Footer";
-import { useEffect, useState } from "react";
 import About from "./pages/About/About";
 import Order from "./pages/Order/Order";
+import Modal from "./modal/Modal";
+import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { customStorage } from "./localStorage/customStorage";
-import Modal from "./modal/Modal";
 
 function App() {
   const [orders, setOrders] = useState(
