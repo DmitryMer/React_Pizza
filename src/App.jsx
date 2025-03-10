@@ -4,7 +4,7 @@ import Footer from "./components/Footer";
 import About from "./pages/About/About";
 import Order from "./pages/Order/Order";
 import Modal from "./modal/Modal";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { customStorage } from "./localStorage/customStorage";
 
@@ -39,10 +39,6 @@ function App() {
       customStorage([...orders, el]);
     }
   };
-
-  useEffect(() => {
-    console.log(orders);
-  });
 
   return (
     <>
