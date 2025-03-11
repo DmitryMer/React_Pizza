@@ -1,0 +1,15 @@
+.about-page {
+  display: flex;
+  justify-content: space-around;
+}
+
+.about-page__img {
+  width: 300px;
+  height: 400px;
+}
+
+.about-text {
+  margin: 10px;
+  font-size: 25px;
+  font-weight: bold;
+}
