@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { customStorage } from "../../localStorage/customStorage";
 import Modal from "../../modal/Modal";
+import Counter from "../../counter/Counter";
 
-const Order = ({ orders, setOrders, totalPrice }) => {
+const Order = ({ orders, setOrders, totalPrice, increase, decrease }) => {
   const [modalActive, setModalActive] = useState(true);
   const [modalOrderText, setModalOrderText] = useState("");
 
@@ -45,13 +46,19 @@ const Order = ({ orders, setOrders, totalPrice }) => {
           <div key={el.id}>
             <img src={el.image} />
             <h4>{el.name}</h4>
-            <p>Цена: {el.price}$</p>
+            <p>Цена: {el.priceTotal}$</p>
             <button
               onClick={() => removeOrders(el)}
               style={{ width: "80px", height: "40px" }}
             >
               Удалить товар
             </button>
+            <Counter
+              id={el.id}
+              increase={increase}
+              decrease={decrease}
+              count={el.count}
+            />
           </div>
         ))}
       </div>

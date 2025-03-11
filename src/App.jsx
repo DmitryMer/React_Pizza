@@ -17,7 +17,7 @@ function App() {
 
   //подсчет итоговой суммы
   const calculateTotalPrice = () => {
-    return orders.reduce((acc, el) => acc + el.price, 0);
+    return orders.reduce((acc, el) => acc + el.priceTotal, 0);
   };
 
   const totalPrice = calculateTotalPrice();
@@ -40,6 +40,40 @@ function App() {
     }
   };
 
+  //Увеличение кол-ва товара в корзине
+  const increase = (id) => {
+    setOrders((order) =>
+      order.map((item) => {
+        if (item.id === id) {
+          return {
+            ...item,
+            count: item.count + 1,
+            priceTotal: (item.count + 1) * item.price,
+          };
+        }
+        return item;
+      })
+    );
+  };
+
+  //Уменьшение кол-ва товара в корзине
+
+  const decrease = (id) => {
+    setOrders((order) =>
+      order.map((item) => {
+        if (item.id === id) {
+          const newCount = item.count - 1 > 1 ? item.count - 1 : 1;
+          return {
+            ...item,
+            count: newCount,
+            priceTotal: newCount * item.price,
+          };
+        }
+        return item;
+      })
+    );
+  };
+
   return (
     <>
       <BrowserRouter>
@@ -56,6 +90,8 @@ function App() {
             path="/order"
             element={
               <Order
+                increase={increase}
+                decrease={decrease}
                 totalPrice={totalPrice}
                 orders={orders}
                 setOrders={setOrders}
